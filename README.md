@@ -1,5 +1,10 @@
-# learning-api-blueprint
-Repository to learn about api blueprint, aglio, drakov and dredd.
+# Learning API Blueprint
+Repository to learn about **api blueprint**, **aglio**, **drakov** and **dredd**.
+***
+* **TODO**
+[x] Actions
+[ ] Waypoints
+[x] Functions
 ***
 # Install Aglio to create, edit and generate API Documentation
 
