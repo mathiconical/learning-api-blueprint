@@ -13,11 +13,12 @@ for /f "tokens=4 delims=:" %%a in ('type _host.txt^|find "HOST: "') do (
 
 set port=%port%
 
-echo %ESC%[101m"* Remove _host.txt file"%ESC%[0m
-del _host.txt
+@REM echo %ESC%[101m"* Remove _host.txt file"%ESC%[0m
+@REM del _host.txt
 
 echo %ESC%[104m"* Runs drakov on port: "%ESC%[0m %ESC%[94m%port%%ESC%[0m
 timeout 1 > nul
+
 drakov -f example.apib -p %port%
 
 @echo on
