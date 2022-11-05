@@ -1,6 +1,7 @@
 <h1 align="center">Learning API Blueprint</h1>
 <p align="center">Repository to learn about <b>api blueprint, aglio, drakov and dredd</b>.</p>
 ***
+
 <b>TODO</b>
 - [x] Actions
 - [ ] Waypoints
