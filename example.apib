@@ -43,11 +43,6 @@ Returns a specific Action.
 
     [Action][]
 
-### Delete a Action [DELETE]
-Delete a action of user configuration.
-
-+ Response 204
-
 ## Action Collection [/stream/0/action]
 A collection of actions.
 
@@ -117,3 +112,101 @@ Retrieves all actions.
 + Response 200
 
     [Action Collection][]
+
+# Group Functions
+
+This section groups all **actions** post resources.
+
+## Function [/stream/0/functions/{name}]
+An name is a function name that can do many things in bot, examples
+* Talk with NPC's
+* Deposit money and itens in the bank
+* Check if exist something specific on screen.
+
++ Parameters
+    + name: `deposit_gold` (string) - The specific name of function.
+
++ Model (application/json)
+
+    ```js
+    {
+        "data": {
+            "key": "deposit_gold",
+            "description": "deposit gold in the bank",
+            "arguments": {
+                "speeches": ["hi", "deposit all", "yes"],
+                "delay": 500,
+            },
+        },
+        "meta": {
+            "code": 200,
+        }
+    }
+    ```
+
+### Retrieve a Function [GET]
+Returns a specific Function by name.
+
++ Response 200
+
+    [Function][]
+
+
+## Functions [/stream/0/functions/]
+All functions that can do many things in bot, examples
+* Talk with NPC's
+* Deposit money and itens in the bank
+* Check if exist something specific on screen.
+
++ Model (application/json)
+
+    ```js
+    {
+        "data":
+        [
+            {
+                "name": "deposit_gold",
+                "description": "deposit gold in the bank",
+                "arguments": {
+                    "speeches": ["hi", "deposit all", "yes"],
+                    "delay": 500,
+                },
+            },
+            {
+                "name": "auto_eat_food",
+                "description": "auto eat food when character is hungry",
+                "arguments": {
+                    "use_on_fight": true,
+                    "hotkey": "f9",
+                },
+            },
+            {
+                "name": "auto_haste",
+                "description": "auto use haste spell",
+                "arguments": {
+                    "use_on_fight": false,
+                    "hotkey": "f4",
+                    "remove_paralyze": true
+                },
+            },
+            {
+                "name": "auto_charge",
+                "description": "auto cast charge (utani tempo hur) only for knights",
+                "arguments": {
+                    "use_on_fight": false,
+                    "hotkey": ["shift", "f4"],
+                    "remove_paralyze": false,
+                },
+            },
+        ],
+        "meta": {
+            "code": 200,
+        }
+    }
+    ```
+### Retrieve all Functions [GET]
+Returns all Functions and they parameters and default values.
+
++ Response 200
+
+    [Functions][]
