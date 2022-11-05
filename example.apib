@@ -1,0 +1,119 @@
+FORMAT: 1A
+HOST: https://127.0.0.1:4000
+
+# Pyxel Tibia Bot API
+This API Blueprint is just a study case and maybe a prototype to my Tibia Pixel Bot maded in Python. See the actual
+[Waypoint Cave Generate](https://mathiconical.github.io/CBS/).
+
+NOTE: This document is a **work in progress**.
+
+# Group Actions
+This section groups all **actions** post resources.
+
+## Action [/stream/0/actions/{key}]
+An action is a key of keyboard action that can represents the movement of the character.
+
++ Parameters
+    + key: `w` (string) - The specific key of keyboard.
+
++ Model (application/json)
+
+    ```js
+    {
+        "data": {
+            "key": "a",
+            "action_type": "walk_up",
+            "description": "walk up",
+            "delay_base": 200,
+            "time": "ms",
+            "decrease_by_level": true,
+            "formula": "delay_base - (level / 80)",
+            "round": "floor",
+        },
+        "meta": {
+            "code": 200,
+        }
+    }
+    ```
+
+### Retrieve a Action [GET]
+Returns a specific Action.
+
++ Response 200
+
+    [Action][]
+
+### Delete a Action [DELETE]
+Delete a action of user configuration.
+
++ Response 204
+
+## Action Collection [/stream/0/action]
+A collection of actions.
+
++ Model (application/json)
+
+    ```js
+    {
+        "data": [
+            {
+                "key": "a",
+                "action_type": "walk_left",
+                "description": "walk left",
+                "delay_base": 200,
+                "time": "ms",
+                "decrease_by_level": true,
+                "formula": "delay_base - (level / 80)",
+                "round": "floor",
+            },
+            {
+                "key": "s",
+                "action_type": "walk_down",
+                "description": "walk down",
+                "delay_base": 200,
+                "time": "ms",
+                "decrease_by_level": true,
+                "formula": "delay_base - (level / 80)",
+                "round": "floor",
+            },
+            {
+                "key": "d",
+                "action_type": "walk_right",
+                "description": "walk right",
+                "delay_base": 200,
+                "time": "ms",
+                "decrease_by_level": true,
+                "formula": "delay_base - (level / 80)",
+                "round": "floor",
+            },
+        ],
+        "meta": {
+            "code": 200,
+        }
+    }
+    ```
+
+### Create a Action [POST]
+Create a new Action object. Mentions the
+* key
+* action type
+* some description
+* delay base of interval of each action, time order (**ms, ns, s, ...**)
+* decrease by level
+* formula ( **always delay_base -/+ (level / some_number)** )
+* round function **( floor, ceil )**
+
++ Request
+
+    [Action][]
+
++ Response 201
+
+    [Action][]
+
+### Retrieve all Actions [GET]
+Retrieves all actions.
+
++ Response 200
+
+    [Action Collection][]
