@@ -18,7 +18,6 @@ del _host.txt
 
 echo %ESC%[104m"* Runs drakov on port: "%ESC%[0m %ESC%[94m%port%%ESC%[0m
 timeout 1 > nul
-
-start cmd /k drakov -f example.apib -p %port%
+drakov -f example.apib -p %port%
 
 @echo on
