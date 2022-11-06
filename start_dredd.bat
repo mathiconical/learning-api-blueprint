@@ -40,6 +40,6 @@ set address_port=%http%:%address%:%port%
 
 echo %ESC%[102m"* Runs dredd on port:  "%ESC%[0m %ESC%[94m%port%%ESC%[0m
 timeout 2 > nul
-dredd example.apib%address_port%
-
+cmd /k dredd example.apib%address_port%
+exit
 @echo on
